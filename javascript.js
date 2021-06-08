@@ -1,19 +1,27 @@
-function toggleResetPswd(e){
-    e.preventDefault();
-    $('#logreg-forms .form-signin').toggle() // display:block or none
-    $('#logreg-forms .form-reset').toggle() // display:block or none
-}
+var design = anime({
+  targets: 'svg #XMLID5',
+  keyframes: [
+    {translateX: -500},
+    {rotateY: 180},
+    {translateX: 920},
+    {rotateY: 0},
+    {translateX: -500},
+    {rotateY: 180},
+    {translateX: -500},
+  ],
+  easing: 'easeInOutSine',
+  duration: 60000,
+});
 
-function toggleSignUp(e){
-    e.preventDefault();
-    $('#logreg-forms .form-signin').toggle(); // display:block or none
-    $('#logreg-forms .form-signup').toggle(); // display:block or none
-}
-
-$(()=>{
-    // Login Register Form
-    $('#logreg-forms #forgot_pswd').click(toggleResetPswd);
-    $('#logreg-forms #cancel_reset').click(toggleResetPswd);
-    $('#logreg-forms #btn-signup').click(toggleSignUp);
-    $('#logreg-forms #cancel_signup').click(toggleSignUp);
-})
+anime({
+  targets: '#dust-paarticle path',
+  translateY: [10, -150],
+  direction: 'alternate',
+  loop: true,
+  delay: function(el, i, l) {
+    return i * 100;
+  },
+  endDelay: function(el, i, l) {
+    return (l - i) * 100;
+  }
+});
